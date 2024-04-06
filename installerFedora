@@ -1,0 +1,33 @@
+#! /bin/bash
+
+printf "This will install updnf, do you wish to continue (y* to confirm?) "
+read answer
+
+# this line is confusing
+# ${answer#[Yy]} is a function that strips prefix
+# we're comparing the var string to the var string after any Y/y prefix strip
+if [ $answer = "${answer#[Yy]}" ]; then
+	exit 1
+fi
+
+# sets the user home to the calling user, not root
+USER_HOME=$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)
+
+if [ ! -d $USER_HOME/.local ]; then
+	mkdir $USER_HOME/.local
+fi
+
+if [ ! -d $USER_HOME/.local/bin ]; then
+	mkdir $USER_HOME/.local/bin
+fi
+
+# this creates new file, just move it instead
+# using printf for newlines
+# printf "#!/bin/bash\n\nsudo apt update && sudo apt upgrade && tput bel " >> $USER_HOME/.local/bin/upapt
+
+# moves upapt and makes excutable
+mv scripts/updnf $USER_HOME/.local/bin/updnf
+chmod +x $USER_HOME/.local/bin/updnf
+
+# runs bashset, sets the prompt for bash
+. bashset
