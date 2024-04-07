@@ -23,9 +23,9 @@ fi
 
 # this creates new file, just move it instead
 # using printf for newlines
-# printf "#!/bin/bash\n\nsudo apt update && sudo apt upgrade && tput bel " >> $USER_HOME/.local/bin/upapt
+# printf "#!/bin/bash\n\nsudo dnf upgrade && tput bel " >> $USER_HOME/.local/bin/updnf
 
-# moves upapt and makes excutable
+# moves updnf and makes excutable
 mv scripts/updnf $USER_HOME/.local/bin/updnf
 chmod +x $USER_HOME/.local/bin/updnf
 
