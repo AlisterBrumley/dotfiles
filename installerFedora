@@ -30,4 +30,4 @@ mv scripts/updnf $USER_HOME/.local/bin/updnf
 chmod +x $USER_HOME/.local/bin/updnf
 
 # runs bashset, sets the prompt for bash
-. bashset
+. instHelper/bashset

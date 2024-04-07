@@ -30,4 +30,4 @@ mv scripts/upapt $USER_HOME/.local/bin/upapt
 chmod +x $USER_HOME/.local/bin/upapt
 
 # runs bashset, sets the prompt for bash
-. bashset
+. instHelper/bashset
