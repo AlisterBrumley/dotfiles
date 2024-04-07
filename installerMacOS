@@ -1,6 +1,6 @@
 #! /bin/bash
 
-printf "This will install upapt, do you wish to continue (y* to confirm?) "
+printf "This will install upbrew, do you wish to continue (y* to confirm?) "
 read answer
 
 # this line is confusing
@@ -23,11 +23,11 @@ fi
 
 # this creates new file, just move it instead
 # using printf for newlines
-# printf "#!/bin/bash\n\nsudo apt update && sudo apt upgrade && tput bel " >> $USER_HOME/.local/bin/upapt
+# printf "#!/bin/bash\n\nsudo apt update && sudo apt upgrade && tput bel " >> $USER_HOME/.local/bin/upbrew
 
-# moves upapt and makes excutable
-mv scripts/upapt $USER_HOME/.local/bin/upapt
-chmod +x $USER_HOME/.local/bin/upapt
+# moves upbrew and makes excutable
+mv scripts/upbrew $USER_HOME/.local/bin/upbrew
+chmod +x $USER_HOME/.local/bin/upbrew
 
-# runs bashset, sets the prompt for bash
-. instHelper/bashSet
+# runs zshset, sets the prompt for bash
+. instHelper/zshSet

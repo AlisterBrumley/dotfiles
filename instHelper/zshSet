@@ -14,19 +14,19 @@ fi
 USER_HOME=$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)
 
 if [ -f ~/.bashrc ]; then
-    echo "PS1=\"\[\e[94m\]\u@\h \[\e[92m\]\D{%d/%m/%y %H:%M:%S} \[\e[35m\]\w\[\e[00m\] \[\e[1;34m\]\\$\[\e[00m\] \"" >> $USER_HOME/.bashrc
+    echo "PS1=\"%F{14}%n@%m%f %F{12}%D{%d/%m/%y %H:%M:%S}%f %F{13}%1~%f %B%#%b\"" >> $USER_HOME/.bashrc
 	echo "wrote to ~/.bashrc"
 	tput bel
 else
     echo ".bashrc not found or permissions issue"
 	if [ -f ~/.bash_profile ]; then
-		echo "PS1=\"\[\e[94m\]\u@\h \[\e[92m\]\D{%d/%m/%y %H:%M:%S} \[\e[35m\]\w\[\e[00m\] \[\e[1;34m\]\\$\[\e[00m\] \""  >> $USER_HOME/.bash_profile
+		echo "PS1=\"%F{14}%n@%m%f %F{12}%D{%d/%m/%y %H:%M:%S}%f %F{13}%1~%f %B%#%b\""  >> $USER_HOME/.bash_profile
 		echo "wrote to ~/.bash_profile"
 		tput bel
 	else
 		echo ".bash_profile not found or permissions issue"
 		if [ -f ~/.profile ]; then
-			echo "PS1=\"\[\e[94m\]\u@\h \[\e[92m\]\D{%d/%m/%y %H:%M:%S} \[\e[35m\]\w\[\e[00m\] \[\e[1;34m\]\\$\[\e[00m\] \""  >> $USER_HOME/.profile
+			echo "PS1=\"%F{14}%n@%m%f %F{12}%D{%d/%m/%y %H:%M:%S}%f %F{13}%1~%f %B%#%b\""  >> $USER_HOME/.profile
 			echo "wrote to ~/.profile"
 			tput bel
 		else
